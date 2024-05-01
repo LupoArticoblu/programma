@@ -31,4 +31,4 @@ martello.fissaChiodi(5)
 
 chiodiPiantati = martello.fissaChiodi()
 
-//in JS si usa un metodo di scrittura chiamato camelCase: mentre per l'identificazione delle classi(quello che si fà in Java) si usa il PascalCase
+//in JS si usa un metodo di scrittura chiamato camelCase: mentre per l'identificazione delle classi(quello che si fà in Java) si usa il PascalCase 
