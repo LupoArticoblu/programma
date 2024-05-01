@@ -14,7 +14,7 @@ console.log("hello js by console")
 
 document.getElementById('saluto').innerHTML= 'hello JS in getElement';
 
-//operatori matematici
+//-------------operatori matematici--------------
 
 let n1 = 14;
 let n2 = 7;
@@ -46,3 +46,12 @@ sottrazione = stringaNumero - n2;
 console.log("sottrazione con stringaNumero", sottrazione);
 //PS:la sottrazione di 2 stringhe mi riporterà un valore NaN(not a number)
 
+
+//----------------INTERAZIONE CON L'UTENTE----------------
+
+//utilizzare la funzione "prompt" lancierà un pop up a schermo che conterrà un campo di testo da far riempire all'utente, il parametro può essere una domanda, es:
+
+const nomeUtente = prompt('come ti chiami?');
+console.log('nomeUtente = ',nomeUtente);
+//PS: un prompt darà sempre come risultato una STRINGA
+ 
