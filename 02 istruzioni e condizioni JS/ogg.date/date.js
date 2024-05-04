@@ -39,3 +39,21 @@ ${ore}:${minuti}:${secondi}`;
 document.getElementById('date').innerHTML = clock;
 
 //PS. il metodo getTime() mi restituisce in millisecondi il tempo trascorso dal "1 gennaio 1970" ad Oggi
+
+
+
+
+//--------come sapere quanti giorni sono passati tra 2 date?-------
+
+const Michela = new Date('1989-10-01');
+const Lorenzo = new Date('1994-10-04');
+
+let diffMillisecondi = Michela - Lorenzo;
+
+//per evitare un numero negativo e sapere quale data viene prima:
+
+if(Lorenzo > Michela) diffMillisecondi = Lorenzo - Michela;
+
+//nel console.log facciamo l'operazione necessaria per trovare i giorni trascorsi tra una data e l'altra
+
+console.log((((diffMillisecondi / 1000) / 60) / 60) / 24 );
