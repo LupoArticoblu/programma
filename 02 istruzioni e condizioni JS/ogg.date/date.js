@@ -57,3 +57,9 @@ if(Lorenzo > Michela) diffMillisecondi = Lorenzo - Michela;
 //nel console.log facciamo l'operazione necessaria per trovare i giorni trascorsi tra una data e l'altra
 
 console.log((((diffMillisecondi / 1000) / 60) / 60) / 24 );
+
+
+
+//------quanti minuti mancano alla fine dell'ora?-------
+let minutiRestanti = 60 - data.getMinutes();
+console.log(minutiRestanti);
