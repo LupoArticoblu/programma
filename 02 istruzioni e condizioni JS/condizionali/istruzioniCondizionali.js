@@ -86,3 +86,24 @@ if (parola1.length < parola2.length) {
   }
 }
 
+//--------chi è più vecchio? -------------
+
+const giocatore1 = parseInt(prompt('età giocatore 1'));
+const giocatore2 = parseInt(prompt('età giocatore 2'));
+let risultato;
+
+//confrontiamo l'età dei due giocatori e nel risultato salviamo chi dei 2 è il più vecchio( annidando una variabile per sapere la differenza di età)
+
+if (giocatore1 < giocatore2) {
+  let anzianità = giocatore2 - giocatore1;
+  risultato = `Giocatore 2, sei più vecchio di giocatore 1 di ${anzianità} anni!`
+} else if(giocatore1 > giocatore2){
+  let anzianità = giocatore1 - giocatore2;
+  risultato = `Giocatore 1, sei più vecchio di giocatore 2 di ${anzianità} anni!`
+} else{
+  risultato = `Avete gli stessi anni!`
+}
+
+//stampo la variabile risultato
+
+document.getElementById('ins').innerHTML = risultato;
