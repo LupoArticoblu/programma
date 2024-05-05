@@ -8,9 +8,16 @@ if(booleani){
   console.log(' il valore booleano è settato su false, quindi restituisce FALSO');
 }
 
-//gli OPERATORI RELAZIONARI mettono a confronto 2 valori e possono essere: "==" uguaglianza(= è di assegnazione), "!=" diversità, "<" minore, ">" maggiore, "<=" minore o uguale, ">=" maggiore o uguale; 
+//gli OPERATORI RELAZIONARI mettono a confronto 2 valori e possono essere: "==" uguaglianza(= è di assegnazione), "!=" diversità, "<" minore, ">" maggiore, "<=" minore o uguale, ">=" maggiore o uguale;
 
-//in fine abbiamo le identità che vanno verificate con "===" (uguaglianza di tipo e valore) o "!==" (disuguaglianza di tipo e valore)
+//l'operatore MODULO "%" restituisce il resto di una divisione tra 2 operandi
+
+const se = 7;
+const qu = 14;
+
+console.log('il risultato di modulo tra 14 e 7 è ',qu % se);
+
+//infine abbiamo le identità che vanno verificate con "===" (uguaglianza di tipo e valore) o "!==" (disuguaglianza di tipo e valore)
 
 const x = 3;
 const y = 4;
@@ -59,6 +66,16 @@ if(!bool2){
   console.log('devi essere loggato per accedere al sito');
 }else{
   console.log('benvenuto utente001');
+}
+
+//-----pari o dispari in log----
+
+const pari_dispari = Math.floor(Math.random() * 10) + 1;
+//nella condizione if posso usare il confronto "=== 0" ma dato che 0 e 1 sono anche traducibili in valori booleani true e false, uso NOT
+if (!(pari_dispari % 2)) {
+  console.log(pari_dispari,'è pari');
+} else {
+  console.log(pari_dispari,'è dispari');  
 }
 
 
