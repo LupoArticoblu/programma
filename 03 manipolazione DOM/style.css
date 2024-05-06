@@ -1,0 +1,38 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  max-width: 60%;
+  margin: 20px auto;
+}
+
+.red{
+  color: magenta;
+}
+
+.blue{
+  color: cyan;
+}
+
+.yellow{
+  color: yellow;
+}
+
+.upper{
+  text-transform: uppercase;
+}
+
+.under{
+  text-decoration: underline;
+}
+
+.italic{
+  font-style: italic;
+}
+
+.hide{
+  display: none;
+}
