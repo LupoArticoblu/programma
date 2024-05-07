@@ -36,3 +36,11 @@
 .hide{
   display: none;
 }
+
+.rotating-button {
+  transition: transform 1s;
+}
+
+.rotating-button.rotate {
+  transform: rotate(1080deg);
+}
