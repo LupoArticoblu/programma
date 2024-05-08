@@ -80,25 +80,61 @@ btn1.addEventListener('click', function() {
 //vediamo come funziona la logica toggle per rendere cangiante un elemento
 let btn3 = document.querySelector('.container5 button');
 
-btn3.addEventListener('click', function() {
-  
+/*btn3.addEventListener('click', function() {
+  la variabile daCliccare viene esaminata da un if, se questa è true il nostro bottone mostrerà qualcosa e la renderà false, ricliccando mostrerà altro e la renderà di nuovo true creando un ciclo
   if (daCliccare) {
     btn3.innerHTML = "mi hai clickato!"
     daCliccare = false;
   } else {
     btn3.innerHTML = "Cliccami!"
     daCliccare = true;
-  }
-})
+  } 
+})*/
 
 //un evento scatenante può avere effetti su altri elementi e sul flusso del documento
 let btn2 = document.querySelector('.container4 button');
-
 btn2.addEventListener('click', function() {
+  //per evitare che il terzo bottone torni al primo caso di toggle faccio un controllo sullo stato di 2 variabili, una mi controlla se btn2 è stato cliccato e nel caso diventa true per non tornare ad uno stato precedente è l'altra è il comportamento che deve avere il bottone per rendere cangiante il btn3
+  if(!btn2Cliccato) {
+    statoBtn2 = !statoBtn2;
+    btn2Cliccato = true;
+  }
   if (btn2) {
     btn2.classList.add('rotating-button');
     btn2.classList.toggle('rotate');
     btn1.classList.add('hide');
     btn2.innerHTML = "😈"
+    btn3.innerHTML = "😨"
     console.log(btn2);
-}});
+  }});
+  
+//il comportamento di un bottone può cambiare ancora innestando nel proprio EventListener il comportamento di un altro
+
+//creiamo una variabile che identifichi lo stato del secondo bottone e inseriamo il suo comportamento nell  Event listener del secondo bottone
+let statoBtn2 = false;
+//e una variabile da inserire nell evento btn3 per renderlo toggle
+let statoBtn3 = true;
+//diamo un nuovo evento al terzo bottone ma solo se...
+btn3.addEventListener('click', function() {
+  console.log(btn3);
+  if (statoBtn2) {
+    if (btn3.innerHTML = "😨" && statoBtn3) {  
+      btn3.innerHTML = "😭"
+      statoBtn3 = false;
+    }else{
+      btn3.innerHTML = "😨"
+      statoBtn3 = true;
+    }
+  } else{
+    if (daCliccare) {
+      btn3.innerHTML = "mi hai clickato!"
+      daCliccare = false;
+    } else {
+      btn3.innerHTML = "Cliccami!"
+      daCliccare = true;
+    } 
+  }
+})
+
+//flag per tener traccia del comportamento del secondo bottone (quando true non può più tornare indietro)
+let btn2Cliccato = false;
