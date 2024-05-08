@@ -74,18 +74,22 @@ let daCliccare = true;
 btn1.addEventListener('click', function() {
   if (btn1) {
     btn1.innerHTML = "mi hai clickato!"
-    daCliccare = false;
   }
 });
 
-//------????????-------- 02:00:00
-if (daCliccare === true) {
-  btn1.innerHTML = "clickami!"
-  daCliccare = false;
-} else {
-  btn1.innerHTML = "mi hai clickato!"
-  daCliccare = true;
-}
+//vediamo come funziona la logica toggle per rendere cangiante un elemento
+let btn3 = document.querySelector('.container5 button');
+
+btn3.addEventListener('click', function() {
+  
+  if (daCliccare) {
+    btn3.innerHTML = "mi hai clickato!"
+    daCliccare = false;
+  } else {
+    btn3.innerHTML = "Cliccami!"
+    daCliccare = true;
+  }
+})
 
 //un evento scatenante può avere effetti su altri elementi e sul flusso del documento
 let btn2 = document.querySelector('.container4 button');

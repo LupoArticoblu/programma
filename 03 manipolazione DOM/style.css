@@ -38,9 +38,9 @@
 }
 
 .rotating-button {
-  transition: transform 1s;
+  transition: transform 0.6s;
 }
 
 .rotating-button.rotate {
-  transform: rotate(1080deg);
+  transform: rotate(13320deg);
 }
