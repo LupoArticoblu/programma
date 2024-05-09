@@ -138,3 +138,36 @@ btn3.addEventListener('click', function() {
 
 //flag per tener traccia del comportamento del secondo bottone (quando true non può più tornare indietro)
 let btn2Cliccato = false;
+
+
+
+
+//creiamo un bottone che apre un prompt e chiede all' utente prima il nome poi il genere e stampare il nome con colori dipendenti al sesso scelto
+const btn4 = document.querySelector('.container6 button');
+
+//la funzione pùo essere richiamata per nome e senza parentesi... 
+btn4.addEventListener('click', question);
+
+//...dichiarandola ovunque nel codice
+function question() {
+  console.log(btn4);
+  const nome = prompt('come ti chiami?');
+  let genere = prompt('sei maschio o femmina?');
+  const output = document.getElementById('output');
+  output.innerHTML = nome;
+
+  //rendiamo il genere sempre riconoscibile in stringa dal programma nonostante lettere maiuscole tramitr il metodo toLowerCase()
+  genere = genere.toLocaleLowerCase();
+  if (genere == "maschio") {
+    //in questo caso classList non va bene perchè memorizza la classe e non sostituisce il colore
+    //output.classList.add('blue');
+    output.className = 'blue';
+  } else if (genere == "femmina"){
+    //output.classList.add('red');
+    output.className = 'red';
+  }else{
+    //output.classList.add('yellow');
+    output.className = 'yellow';
+  }
+}
+
