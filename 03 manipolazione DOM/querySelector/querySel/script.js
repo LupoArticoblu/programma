@@ -171,3 +171,24 @@ function question() {
   }
 }
 
+//la proprietà value restituisce il valore di un elemento(se lo ha)
+
+//creiamo un bottone che da valore ad un input di testo
+const bottone = document.querySelector('.button');
+
+bottone.addEventListener('click', function() {
+  const name = prompt('come ti chiami?');
+  document.querySelector('.inp').value = name;
+})
+
+
+//inserisco un testo in un inputtext e un bottone farà apparire quel testo in output
+const bottone2 = document.querySelector('.button2');
+
+bottone2.addEventListener('click', function() {
+  const name = document.querySelector('.inp2').value;
+  document.querySelector('.output').innerHTML = name;
+
+  //resetto il valore dell'input
+  document.querySelector('.inp2').value = '';
+})
