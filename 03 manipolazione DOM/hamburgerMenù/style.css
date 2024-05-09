@@ -1,0 +1,20 @@
+.hide{
+  display: none;
+}
+
+.colored-menu{
+  display: none;
+}
+
+
+
+@media screen and (max-width:600px) {
+  nav{
+    display: none;
+  }
+  .colored-menu{
+    display: block;
+    text-align: end;
+  }
+
+}
