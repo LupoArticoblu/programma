@@ -15,6 +15,13 @@ nomi.push('Alessandra');
 console.log(nomi);
 console.log(nomi[3]);
 
+console.log(nomi);
+//per rimuovere l'ultimo elemento da un array, bisogna usare la funzione pop(), quest'elemento verrà restituito e nel caso salvato
+const nomiMeno1 = nomi.pop();
+console.log(nomi);
+console.log(nomiMeno1);
+
+
 //per conoscere la lunghezza di un array e per ciclarlo si usa il metodo length senza parentesi
 console.log('lunghezza array contando da 1:',nomi.length);
 
@@ -77,9 +84,47 @@ for (let index = 0; index < nomi.length; index++) {
 
 //se volessi far inserire altri nomi chiedendoli all'utente, il metodo push() non cambia e la logica la conosciamo già
 
-const addCri = prompt('aggiungi un nome al tu array');
-nomi.push(addCri);
+//const addCri = prompt('aggiungi un nome al tu array');
+//nomi.push(addCri);
 console.log('--array con nome inserito dall\'utente--');
 for (let index = 0; index < nomi.length; index++) {
  console.log(nomi[index]);
 }
+
+//come effettuare la somma di tutti i numeri contenuti in un array
+const num = [1,2,3,4,5,6,7];
+//valorizzo un let a 0 per identificarlo come numero da incrementare
+let sum = 0;
+
+//sommo e stampo il totale
+for (let index = 0; index < num.length; index++) {
+    //sommo ad ogni ciclo l'indice e lo salvo in sum
+    sum += num[index];
+        
+}  
+console.log(sum);
+console.log('----random sum-----');
+
+//array avvalorato da numeri random
+const num2 = [];
+let rand = 0;
+
+for (let index = 0; index < 5; index++) {
+  num2.push(Math.ceil(Math.random()* 100));
+  console.log(num2[index]);
+  rand += num2[index];
+}
+
+console.log(rand);
+
+//---programma che chiede 5 nomi all'utente e li sava in un array---
+
+const nomiUtente = [];
+const quantitaNomi = 5;
+
+for (let index = 0; index < quantitaNomi; index++) {
+  const nomiChiesti = prompt(`inserisci un nome : ${index + 1} di  5`);
+  nomiUtente.push(nomiChiesti);
+  
+}
+console.log(nomiUtente);
