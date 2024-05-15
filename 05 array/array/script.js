@@ -21,6 +21,12 @@ const nomiMeno1 = nomi.pop();
 console.log(nomi);
 console.log(nomiMeno1);
 
+console.log(nomi);
+//la funzione splice() invece rimuove uno o più elementi ma i parametri inseriti all'interno delle parentesi indicano indice di partenza e quantità di elementi da rimuovere
+const nomiMeno2 = nomi.splice(0, 1);
+console.log(nomi);
+console.log(nomiMeno2);
+
 
 //per conoscere la lunghezza di un array e per ciclarlo si usa il metodo length senza parentesi
 console.log('lunghezza array contando da 1:',nomi.length);
