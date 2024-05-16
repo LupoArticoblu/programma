@@ -28,3 +28,10 @@ for (let index = 0; index < listMail.length; index++) {
   if(!mailPresente) {
   output.innerHTML =`ops... non sei in lista`;  
 }  
+
+//un altro metodo per far tutto questo senza ciclare l'array è usando la proprietà includes() che fa un suo ciclo e cerca
+if(listMail.includes(chiediMail)){
+  console.log('entra..?');
+}else{
+  console.log('non penso proprio');
+}
