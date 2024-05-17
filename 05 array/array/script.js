@@ -134,3 +134,24 @@ for (let index = 0; index < quantitaNomi; index++) {
   
 }
 console.log(nomiUtente);
+
+//Destrutturare un array: definisco l'array, in un'altra variabile uso le parentesi quadre per dare nomi ai valori che voglio prendere da quell'array, basandomi sulle posizioni e come valore richiamo l'array
+
+const casa =['via martinelli','18','busto arsizio','21052','Varese'];
+//const [indirizzo,civico,comune] = casa;
+
+console.log(indirizzo,civico,comune);
+
+//e se volessi leggere solo indirizzo e comune? salto un indice utilizzando uno spazio
+const [indirizzo, ,comune] = casa;
+
+//l'operatore spread è rappresentato da 3 punti "..." e consente di espandere il contenuto di un array. Può essere molto utile per compiere una serie di operazioni                            -merging: unire parti di array.                             -cloning: creare una copia di un array
+
+const datiPersonali = ['alberto','lanzina','28'];
+
+let arrayMerge = [...datiPersonali,...casa];
+console.log(arrayMerge);
+
+const arrayCloned = [...datiPersonali];
+console.log(arrayCloned);
+
