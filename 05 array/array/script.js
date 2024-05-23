@@ -145,7 +145,7 @@ console.log(indirizzo,civico,comune);
 //e se volessi leggere solo indirizzo e comune? salto un indice utilizzando uno spazio
 const [indirizzo, ,comune] = casa;
 
-//l'operatore spread è rappresentato da 3 punti "..." e consente di espandere il contenuto di un array. Può essere molto utile per compiere una serie di operazioni                            -merging: unire parti di array.                             -cloning: creare una copia di un array
+//l'operatore spread è rappresentato da 3 punti "..." e consente di espandere il contenuto di un array. Può essere molto utile per compiere una serie di operazioni                           -merging: unire parti di array.                             -cloning: creare una copia di un array
 
 const datiPersonali = ['alberto','lanzina','28'];
 
