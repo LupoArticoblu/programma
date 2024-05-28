@@ -106,7 +106,27 @@ btn.addEventListener('click', function(){
     console.log('FINE nomi', estratti);
   }
  
- 
- 
- 
 })
+
+//Ora parliamo di Switch Case: lo switch è uno strumento poco usato ma molto potente ed evita le condizioni troppo ripetute di ELSE IF e ad ogni condizione si usa il break eccetto per l'ultima 
+
+//la condizione è chiamata key in questo caso
+const key = 'blue';
+//definiamo il testo che riceveremo di risposta dal programma
+let text;
+//la sintassi dello switch
+switch (key) {
+  case 'blue':
+    text = 'il cielo è blu';
+    break;
+  
+  case 'red':
+    text = 'il cielo è rosso';
+    break;
+
+  default:
+    text = 'il cielo è grigio';
+    break;
+}
+
+console.log(text);
