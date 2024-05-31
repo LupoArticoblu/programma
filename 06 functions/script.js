@@ -92,3 +92,88 @@ function pariDispari(numero) {
 const risultato = pariDispari(4);
 
 console.log('risultato di pari o dispari è: ', risultato);
+
+//ricorda: la visibilità di una funzione è data dal valore di return ma non può esser letto direttamente perchè il contenuto di una funzione non è mai visibile all'esterno di essa e và salvato in una variabile
+//esempio
+
+function SommaNum(num1,num2) {
+  const result = num1 + num2;
+
+  return result;
+}
+
+const varSalvataDiReturn = SommaNum(15,18);
+
+console.log(varSalvataDiReturn); //qui la soluzione è salvata e riporterà 32
+
+console.log(result); //qui avrò come risposta undefined perchè result oltre a non essere globale non è salvato da nessuna parte
+
+
+
+//Riprendiamo in esame il carosello di 2 lezioni fà
+
+const slider = document.querySelector('.slider');
+const thumbs = document.querySelector('.thumbs');
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
+
+const numImages = 5;
+let counterImages = 0;
+let sliderHtml = '';
+let thumbsHtml = '';
+
+for(let i = 1; i <= numImages; i++){
+  sliderHtml += `
+      <img  class="item" src="img/0${i}.jpg" alt="">
+  `;
+  thumbsHtml += `
+      <img  class="item-thumb" src="img/0${i}.jpg" alt="">
+  `;
+}
+
+slider.innerHTML = sliderHtml;
+thumbs.innerHTML = thumbsHtml;
+
+const listImages = document.getElementsByClassName('item');
+const listthumbs = document.getElementsByClassName('item-thumb');
+
+listImages[counterImages].classList.add('active');
+listthumbs[counterImages].classList.add('active');
+
+prev.addEventListener('click',function(){
+  listImages[counterImages].classList.remove('active');
+  listthumbs[counterImages].classList.remove('active');
+  counterImages++;
+  if(counterImages === numImages) counterImages = 0;
+  listImages[counterImages].classList.add('active');
+  listthumbs[counterImages].classList.add('active');
+})
+next.addEventListener('click',function(){
+  listImages[counterImages].classList.remove('active');
+  listthumbs[counterImages].classList.remove('active');
+  counterImages--;
+  if(counterImages < 0) counterImages = numImages - 1;
+  listImages[counterImages].classList.add('active');
+  listthumbs[counterImages].classList.add('active');
+})
+
+//centralizziamo l'azione nextPrev
+
+function nextPrev(isNext) {
+  listImages[counterImages].classList.remove('active');
+  listthumbs[counterImages].classList.remove('active');
+  if (isNext) {
+    counterImages--;
+    if(counterImages < 0) counterImages = numImages - 1;  
+  }else{
+    counterImages++;
+    if(counterImages === numImages) counterImages = 0;
+  }
+  listImages[counterImages].classList.add('active');
+  listthumbs[counterImages].classList.add('active');
+}
+
+//ed utiliziamola con argomenti booleani all'interno di next e prev
+
+next.addEventListener('click',nextPrev(true)); //ATTENZIONE: questa forma contratta non funziona perchè verrebbe chiamata al caricamento della pagina; in questo caso e dobbiamo usare sempre il richiamo di una funzione anonima come segue 
+prev.addEventListener('click',function(){nextPrev(false)});  
