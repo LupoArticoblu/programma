@@ -30,8 +30,12 @@ function giraParola(primaParola) {
 const ciao = 'ciao come stai ?';
 //come argomento possiamo passargli un parametro vuoto per destrutturare l'intera frase ed ottenere un array di lettere o, come in questo caso passiamo uno spazio per segnare un divisore ed ottenere le parole intere che formano la frase
 console.log(ciao.split(' '));
-//e reverse() che mi legge l'array al contrario
+
+//reverse() che mi legge l'array al contrario
 console.log(ciao.split(' ').reverse());
+
+//e join() che mi unisce il contenuto di un'array e lo formatta in una stringa con un determinato separatore come argomento
+console.log(ciao.split(' ').reverse().join(''));
 
 
 //informazioni
@@ -49,8 +53,16 @@ btn.addEventListener('click', function(){
 
 //questa funzione deve prendere la parola scomporla in lettere e sapendo la posizione delle lettere riconoscere se palindromo o meno
 function isPalindromo(){
+  if (parola.value === "") {
+    output.innerHTML = `..?` 
+    return
+  }
+  if (parola.value.toLowerCase() === "non") {
+    output.innerHTML = `<img src="https://m.media-amazon.com/images/I/411vpxBwJeL._AC_UF894,1000_QL80_.jpg" class="width 90px" style="width: 70px; height: 70px;">` 
+    return
+  }
   
-  if (parola.value.split('') === parola.value.split('').reverse()) {
+  if (parola.value.toLowerCase() === parola.value.toLowerCase().split('').reverse().join('')) {
     isTrue = true
     output.innerHTML = `La parola ${parola.value} è palindroma`
     return
