@@ -63,14 +63,13 @@ function getRandomNum(min, max) {
 
 //creo una funzione che renda l'estrazione di numeri unica e irripetibile
 function unico(max){
-  let randId = getRandomNum(1, max);
+  let randId;
 //se randId non è incluso
-  while (arrayPerUnicità.includes(randId)) {
+  do{
     //lo estraggo
     randId = getRandomNum(1, max);
-    
-  }
-  
+  } while (arrayPerUnicità.includes(randId));
+
   //lo pusho
   arrayPerUnicità.push(randId);
   return randId;
