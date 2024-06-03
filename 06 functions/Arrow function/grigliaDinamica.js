@@ -27,8 +27,9 @@ function createSquare(maxSquare) {
   //creo il quadrato in questa funzione, lo valorizza e lo appende a container
   const x = document.createElement('div');
   x.className = 'square';
-  rand = unico(randId);
-
+  //ATTENZIONE errore precedente qui:
+  //rand = unico(randId);
+  const rand = unico(maxSquare);
   //così come per le funzioni, possiamo anche creare delle proprietà custom! creiamone una di x con questa sintassi
   x.proprietàSalvaNumero  = rand;
   
