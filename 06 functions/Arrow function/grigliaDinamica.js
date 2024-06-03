@@ -5,12 +5,17 @@
 
 //struttura del html
 const container = document.querySelector('.container');
-const elPerRow = 11;
+const start = document.querySelector('button');
+const elPerRow = 8 ;
 const arrayPerUnicità =[]; 
 
 //creare la griglia
-init(elPerRow);
 
+start.addEventListener('click',function() {
+  container.innerHTML= '';
+  init(elPerRow);
+
+})
 
 function init(element){
   //elevo a potenza con math.pow
@@ -32,6 +37,7 @@ function createSquare(maxSquare) {
   const rand = unico(maxSquare);
   //così come per le funzioni, possiamo anche creare delle proprietà custom! creiamone una di x con questa sintassi
   x.proprietàSalvaNumero  = rand;
+  //generiamo dinamicamente anche la grandezza dei quadrati
   x.style.width = generaCalc();
   x.style.height = generaCalc();
   x.addEventListener('click', clickSqEV);
@@ -57,11 +63,16 @@ function clickSq() {
   this.classList.add((this.proprietàSalvaNumero % 2 === 0) ? 'even' : 'odd');
   
 }
-
+//ricorda che per rendere più professionale il codice puoi inserire dei commenti alle funzioni in questo modo o...
 function generaCalc() {
   return `calc(100% / ${elPerRow}`;
 }
-
+/**
+ * in questo modo, dando oltre ai commenti un impostazione di visibilità della funzione ovunque essa sia(hover)
+ * @param {number} min 
+ * @param {number} max 
+ * @returns random number
+ */
 function getRandomNum(min, max) {
   return Math.floor(Math.random() * (max - min +1))+ min;
 } 
