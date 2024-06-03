@@ -6,15 +6,16 @@
 //struttura del html
 const container = document.querySelector('.container');
 const start = document.querySelector('button');
-const elPerRow = 8 ;
+let elPerRow;
 const arrayPerUnicità =[]; 
 
 //creare la griglia
 
 start.addEventListener('click',function() {
+  //ATTENZIONE: LA DICHIARAZIONE DI QUALCOSA VA SEMPRE FATTA PRIMA DELLA PULIZIA DELL'INNER, sennò falcia via anche l'istruzione di un input
+  elPerRow = document.querySelector('input').value;
   container.innerHTML= '';
   init(elPerRow);
-
 })
 
 function init(element){
