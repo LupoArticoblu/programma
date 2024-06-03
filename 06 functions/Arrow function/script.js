@@ -12,13 +12,10 @@ function fuoriScope(){
   const no = 'non lo vedo';
   let neanche = 'non lo vedo';
   var quandoMai = 'non lo vedo';
-  si = 'lo vedo';
+  si = 'lo vedo';//forse non è più possibile vedere un qualcosa di non dichiarato come variabile al di fuori dello scope
 }
 
-  console.log(no);
-  console.log(neanche);
-  console.log(quandoMai);
-  console.log(si); //forse non è più possibile vedere un qualcosa di non dichiarato come variabile al di fuori dello scope
+  
 
 //a ogni modo ARROW FUNCTION! che sono state inserite in ES6 ed hanno questa sintassi
 () => {
@@ -29,10 +26,12 @@ function fuoriScope(){
 const arrow = () => 'mia funzione';
 
 //...o essere anonime
+/*
 arrow.addEventListener('click', () => {
   
   return 
 });
+*/
 
 //quelle nominali che sono salvate come variabili vanno richiamate proprio come delle funzioni normali
 arrow();
@@ -43,8 +42,12 @@ const somma = (num,num2) => num + num2;
 //senza le graffe ha il return implicito
 console.log(somma(7,3));
 
+const btn = document.getElementById('test');
+
+btn.addEventListener('click', () => {
+  console.log(this); //ATTENZIONE: le arrow non hanno un proprio this ma lo ereditano dallo scope genitore
+})
 //ma quando ci può essere veramente utile?
-
-
+const mix = () => Math.floor(Math.random()*(max - min +1)) + min;
 
 //RICORDA CHE THIS può cambiare a seconda delle situazioni in grigliaDinamica abbiamo visto come può riportare l'oggetto window e il target di event
