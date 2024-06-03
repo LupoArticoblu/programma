@@ -5,7 +5,7 @@
 
 //struttura del html
 const container = document.querySelector('.container');
-const elPerRow = 8;
+const elPerRow = 11;
 const arrayPerUnicità =[]; 
 
 //creare la griglia
@@ -32,9 +32,10 @@ function createSquare(maxSquare) {
   const rand = unico(maxSquare);
   //così come per le funzioni, possiamo anche creare delle proprietà custom! creiamone una di x con questa sintassi
   x.proprietàSalvaNumero  = rand;
-  
-  x.addEventListener('click', clickSqEV)
-  x.addEventListener('click', clickSq)
+  x.style.width = generaCalc();
+  x.style.height = generaCalc();
+  x.addEventListener('click', clickSqEV);
+  x.addEventListener('click', clickSq);
   container.append(x);
 }
 
@@ -55,6 +56,10 @@ function clickSq() {
   //usiamo l'operatore ternario per ACCENDERE le caselle
   this.classList.add((this.proprietàSalvaNumero % 2 === 0) ? 'even' : 'odd');
   
+}
+
+function generaCalc() {
+  return `calc(100% / ${elPerRow}`;
 }
 
 function getRandomNum(min, max) {

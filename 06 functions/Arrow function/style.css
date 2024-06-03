@@ -27,8 +27,8 @@ body{
 }
 
 .square{
-  width: calc(100% / 8);
-  height: calc(100% / 8);
+  /* width: calc(100% / 8); */
+  /* height: calc(100% / 8); */
   border: 1px solid aliceblue;
   text-align: center;
   color: #fff;
