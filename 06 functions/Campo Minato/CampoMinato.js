@@ -33,6 +33,7 @@ const level = document.getElementById('level');
 let gridLevels = [100, 81, 49];
 //variabile di setup (scritta come in php)
 const BOMBE = 16; 
+let SCORE = 0;
 let positionBombs = [];
 let isGameOver = false;
 const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min +1))+ min;
@@ -49,12 +50,13 @@ function play(){
   reset();
   const maxSquare = gridLevels[level.value];
   creaGriglia(maxSquare);
-  positionBombs = bombs(maxSquare)
+  positionBombs = bombs(maxSquare);
 }
 
 //funzione di reset AL TERMINE DEL GIOCO
 function reset() {
   main.innerHTML = '';
+  SCORE = 0;
 }
 
 //numerare i quadrati
@@ -74,10 +76,12 @@ function creaX(idCell, cellSize){
   const x = document.createElement('div');
   x.className = 'square';
   x.classList.add('square');
-  x.id = 'cell-' + idCell;
-  x.innerHTML= `<span>${idCell}</span>`
+  //ATTENZIONE: ID DELLA CELLA RESTITUISCE UNA STRINGA MENTRE NOI IN POSITION BOMBS CERCHEREMO UN NUMERO
+  x.idCell = idCell;
+  x.innerHTML= idCell;
   x.style.width = `${cellSize}px`;
   x.style.height = `${cellSize}px`;
+  x.addEventListener('click', handleClick) //nome funzione di call back di un evento
   return x
 }
 
@@ -91,12 +95,42 @@ function bombs(maxSquare){
       creaBomba.push(bomb);
     }
   }
-
+  console.log(creaBomba);
   return creaBomba;
 }
 
 //gestione click
 
+function handleClick() {
+  console.log(this.idCell);
+  //uso this e prendo la proprietà custom "id" di x
+  if (!positionBombs.includes(this.idCell)) {
+    //verifica tentativi e contali
+    this.classList.add('field');
+    SCORE++;
+    //collection che contiene tutte le celle che ci sono
+    const celle = document.getElementsByClassName('square');
+    if(SCORE === celle.length - BOMBE){
+      
+      //game over
+      endGame(true);
+    }
+  }else{
+    //game over
+    endGame(false);
+  }
+}
 
- 
+function endGame(isWin) {
+  let msg = document.createElement('h3');
+  const celle = document.getElementsByClassName('square');
+  if (isWin) {
+    msg.innerHTML = 'HAI VINTO!';
+    console.log('win');
+  }else{
+    msg.innerHTML = `GAME OVER hai totalizzato ${SCORE} PUNTI su ${celle.length - BOMBE}`;
+    console.log('game over');
+  }
+  main.append(msg);
+}
 
