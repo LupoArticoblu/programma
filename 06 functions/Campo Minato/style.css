@@ -21,6 +21,7 @@ body{
   width: 350px;
   justify-content: center;
   position: relative;
+  background: #000;
 }
 
 .square{

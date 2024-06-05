@@ -59,17 +59,20 @@ function creaGriglia(maxSquare) {
   
   
   
-  for (let index = 0; index <= maxSquare; index++) {
-    const x = creaX(i, maxSquare)
+  for (let index = 1; index <= maxSquare; index++) {
+    const x = creaX(index, maxSquare)
     main.append(x);
     
   }
   
 }
 
-function creaX(){
+function creaX(idCell, maxSquare){
   const x = document.createElement('div');
   x.className = 'square';
+  x.classList.add('square' + maxSquare);
+  x.idCell = idCell;
+  x.innerHTML= `<span>${idCell}</span>`
   x.style.width = generaCalc();
   x.style.height = generaCalc();
   const rand = unico(maxSquare);
