@@ -14,24 +14,21 @@ body{
 }
 
 .container{
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
+  display: grid;
   height: 350px;
   width: 350px;
   justify-content: center;
   position: relative;
-  background: #000;
 }
 
 .square{
-  /* width: calc(100% / 8); */
-  /* height: calc(100% / 8); */
   border: 1px solid aliceblue;
   text-align: center;
   color: #fff;
   line-height: 30px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
 .bomb{

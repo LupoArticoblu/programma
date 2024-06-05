@@ -31,7 +31,9 @@ const main = document.querySelector('.container');
 const start = document.querySelector('button');
 const level = document.getElementById('level');
 let gridLevels = [100, 81, 49];
-const arrayPerUnicità =[]; 
+//variabile di setup (scritta come in php)
+const BOMBE = 16; 
+let positionBombs = [];
 let isGameOver = false;
 const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min +1))+ min;
 
@@ -45,8 +47,9 @@ function play(){
     start.innerText = 'RESET';
   }
   reset();
-  creaGriglia();
-  return
+  const maxSquare = gridLevels[level.value];
+  creaGriglia(maxSquare);
+  positionBombs = bombs(maxSquare)
 }
 
 //funzione di reset AL TERMINE DEL GIOCO
@@ -56,49 +59,44 @@ function reset() {
 
 //numerare i quadrati
 function creaGriglia(maxSquare) {
-  
-  
-  
+  const gridSize = Math.sqrt(maxSquare);
+  const cellSize = (350 / gridSize);
+  main.style.gridTemplateColumns = `repeat(${gridSize}, ${cellSize}px)`;
   for (let index = 1; index <= maxSquare; index++) {
-    const x = creaX(index, maxSquare)
+    const x = creaX(index, cellSize);
     main.append(x);
     
   }
   
 }
 
-function creaX(idCell, maxSquare){
+function creaX(idCell, cellSize){
   const x = document.createElement('div');
   x.className = 'square';
-  x.classList.add('square' + maxSquare);
-  x.idCell = idCell;
+  x.classList.add('square');
+  x.id = 'cell-' + idCell;
   x.innerHTML= `<span>${idCell}</span>`
-  x.style.width = generaCalc();
-  x.style.height = generaCalc();
-  const rand = unico(maxSquare);
-  x.proprietàSalvaNumero  = rand;
-  
+  x.style.width = `${cellSize}px`;
+  x.style.height = `${cellSize}px`;
+  return x
+}
+
+//generare bombe
+function bombs(maxSquare){
+ const creaBomba =[];
+  //ad ogni ciclo genero una bomba random: se presente nell array la ignoro e continuo il ciclo fino ad avere 16 bombe
+  while (creaBomba.length < BOMBE) {
+    const bomb = getRandomNum(1, maxSquare);
+    if (!creaBomba.includes(bomb)) {
+      creaBomba.push(bomb);
+    }
+  }
+
+  return creaBomba;
 }
 
 //gestione click
 
-function generaCalc() {
-  return `calc(100% / ${gridLevels[level.value]}`;
-}
-
 
  
 
-//creo una funzione che renda l'estrazione di numeri unica e irripetibile
-function unico(max){
-  let randId;
-//se randId non è incluso
-  do{
-    //lo estraggo
-    randId = getRandomNum(1, max);
-  } while (arrayPerUnicità.includes(randId));
-
-  //lo pusho
-  arrayPerUnicità.push(randId);
-  return randId;
-}
