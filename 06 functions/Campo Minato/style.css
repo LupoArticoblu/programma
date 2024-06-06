@@ -19,7 +19,6 @@ body{
   width: 350px;
   justify-content: center;
   position: relative;
-  background: #000;
 }
 
 .square{
@@ -44,7 +43,9 @@ body{
   position: absolute;
   z-index: 1;
   bottom: 430px;
-  right: 870px;
+  right: 860px;
+  background-color: rgba(0,0,0, 0.3);
+  padding: 10px;
 }
 .msg{
   text-align: center;

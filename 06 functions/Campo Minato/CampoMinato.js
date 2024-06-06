@@ -139,5 +139,19 @@ function endGame(isWin) {
   rewind.style.right = '940px';
 
   externa.append(msg);
+  explode();
 }
 
+//mostro le bombe
+function explode(){
+  //prendo la collection di celle
+  const celle = document.getElementsByClassName('square');
+  //la ciclo
+  for (let index = 0; index < celle.length; index++) {
+    const cell = celle[index];
+    //se idCell è presente nell'arrAY bombe gli aggiungo la classe bomb
+    if (positionBombs.includes(cell.idCell)) {
+      cell.classList.add('bomb');
+    }
+  }
+}
