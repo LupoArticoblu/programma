@@ -19,7 +19,7 @@ body{
   width: 350px;
   justify-content: center;
   position: relative;
-  color: #fff;
+  background: #000;
 }
 
 .square{
@@ -38,4 +38,20 @@ body{
 
 .field{
   background-color: green;
+}
+
+.contain {
+  position: absolute;
+  z-index: 1;
+  bottom: 430px;
+  right: 870px;
+}
+.msg{
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  color: #fff;
+  font-size: 25px;
+  left: -60px;
+  margin: 10px;
 }
