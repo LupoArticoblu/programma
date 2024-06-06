@@ -140,6 +140,9 @@ function endGame(isWin) {
 
   externa.append(msg);
   explode();
+  const end_lvl = document.createElement('div');
+  end_lvl.className = 'end-game';
+  main.append(end_lvl);
 }
 
 //mostro le bombe

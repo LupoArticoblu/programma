@@ -21,6 +21,14 @@ body{
   position: relative;
 }
 
+.end-game{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
 .square{
   border: 1px solid aliceblue;
   text-align: center;
@@ -46,6 +54,7 @@ body{
   right: 860px;
   background-color: rgba(0,0,0, 0.3);
   padding: 10px;
+  border-radius: 20px;
 }
 .msg{
   text-align: center;
