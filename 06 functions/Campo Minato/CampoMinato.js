@@ -138,7 +138,7 @@ function endGame(isWin) {
   rewind.style.display = 'block';
   rewind.style.right = '940px';
 
-  externa.append(msg);
+  externa.insertAdjacentElement('afterend',msg);
   explode();
   const end_lvl = document.createElement('div');
   end_lvl.className = 'end-game';
