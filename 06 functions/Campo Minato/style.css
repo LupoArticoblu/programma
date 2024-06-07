@@ -53,7 +53,7 @@ body{
   z-index: 1;
   top: 50%;
   left: 50%;
-  transform: translate(-350%, -60%);
+  transform: translate(-50%, -50%);
   background-color: rgba(0,0,0, 0.3);
   padding: 10px;
   border-radius: 20px;

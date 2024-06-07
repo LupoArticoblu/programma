@@ -83,7 +83,12 @@ function creaX(idCell, cellSize){
   x.innerHTML= idCell;
   x.style.width = `${cellSize}px`;
   x.style.height = `${cellSize}px`;
-  x.addEventListener('click', handleClick) //nome funzione di call back di un evento
+  x.addEventListener('click', handleClick); //nome funzione di call back di un evento
+  //tento di rendere incliccabile la cella una seconda volta
+  const clicked = ()=>{
+    x.removeEventListener('click', handleClick);
+  }
+  x.addEventListener('click', clicked);
   return x
 }
 
@@ -111,6 +116,7 @@ function handleClick() {
     this.classList.add('field');
     SCORE++;
     //collection che contiene tutte le celle che ci sono
+
     const celle = document.getElementsByClassName('square');
     if(SCORE === celle.length - BOMBE){
       
@@ -136,7 +142,6 @@ function endGame(isWin) {
     console.log('game over');
   }
   rewind.style.display = 'block';
-  rewind.style.right = '940px';
 
   externa.insertAdjacentElement('afterend',msg);
   explode();
