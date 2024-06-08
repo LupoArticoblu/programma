@@ -41,7 +41,7 @@ function altraFunzione(){
 //facciamo partire questa azione solo dopo aver scatenato un evento
      
 let contatore =0;
-document.querySelector('button').addEventListener('click', start);
+document.querySelector('.via').addEventListener('click', start);
 //funzione start
 function start(){
   //quest'azione viene avviata dopo il momento del click, senza il delay forzato del setInterval
@@ -57,4 +57,51 @@ function start(){
       contatore =0;
     }
   },1000)
+}
+
+//creiamo un cronometro
+
+const inizio = document.querySelector('.inizia');
+const crono = document.querySelector('.crono');
+const fine = document.querySelector('.fine');
+const stopi = document.querySelector('.stop');
+let num = 0;
+let milli = 0;
+let a;
+conter(num,milli);
+
+
+inizio.addEventListener('click', play);
+
+fine.addEventListener('click', pause);
+stopi.addEventListener('click', stopp);
+
+function play() {
+  if (!a) {
+    a = setInterval(function(){
+      conter(num,milli++)
+      if (milli > 59) {
+        num++
+        milli=0;
+      }
+    },10)
+  }
+}
+
+function pause() {
+  clearInterval(a);
+  a = null;
+} 
+
+function stopp() {
+  pause();
+  num =0;
+  milli = 0;
+  conter(num,milli);
+}
+
+function conter(number, millinumber) {
+  if (number < 10) number = '0' + number;
+  if (millinumber < 10) millinumber = '0' + millinumber;
+  crono.innerHTML = `${number}:${millinumber}`;
 }
