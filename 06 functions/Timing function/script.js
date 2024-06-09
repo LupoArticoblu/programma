@@ -105,3 +105,31 @@ function conter(number, millinumber) {
   if (millinumber < 10) millinumber = '0' + millinumber;
   crono.innerHTML = `${number}:${millinumber}`;
 }
+
+//countdown
+const main = document.querySelector('main');
+const element = document.createElement('h3');
+let col;
+let numero = 10;
+
+countDown()
+
+function countDown(){
+  element.innerHTML= numero;
+  col = setInterval(function(){
+    --numero;
+    if (numero === 0) {
+      clearInterval(col);
+    }
+    element.innerHTML = numero;
+  },1000);
+}
+
+  
+    
+main.parentNode.insertBefore(element, main.nextElementSibling);
+
+
+
+
+
