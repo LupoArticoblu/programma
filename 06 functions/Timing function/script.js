@@ -111,6 +111,7 @@ function conter(number, millinumber) {
 const main = document.querySelector('main');
 const element = document.createElement('h3');
 const element2 = document.createElement('h5');
+const orologio = document.createElement('h1');
 let col;
 let colo;
 let numero = 10;
@@ -167,3 +168,36 @@ function countUP() {
 
 element.parentNode.insertBefore(element2, element.nextElementSibling);
 
+//stampiamo un orologio in pagina
+printClock(getClock());
+
+//aggiorno l'ora
+setInterval(function(){
+  printClock(getClock());
+},1000)
+
+//stampo l'ora
+function printClock(orario) {
+  orologio.innerHTML = orario;
+}
+
+//prendo l'ora e la ritorno
+function getClock(){
+  
+  const date = new Date();
+  let ora =date.getHours();
+  let minuti =date.getMinutes();
+  let secondi =date.getSeconds();
+  //if per gli 0
+  if (ora <10) ora = '0' + ora;
+  if (minuti <10) minuti = '0' + minuti;
+  if (secondi <10) secondi = '0' + secondi;
+  
+  return `${ora}:${minuti}:${secondi}`
+}
+  
+
+
+
+
+element2.parentNode.insertBefore(orologio, element2.nextElementSibling);
