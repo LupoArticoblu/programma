@@ -77,6 +77,7 @@ fine.addEventListener('click', pause);
 stopi.addEventListener('click', stopp);
 
 function play() {
+  //verifica per evitare di cliccare più volte "inizio"
   if (!a) {
     a = setInterval(function(){
       conter(num,milli++)
@@ -109,27 +110,60 @@ function conter(number, millinumber) {
 //countdown
 const main = document.querySelector('main');
 const element = document.createElement('h3');
+const element2 = document.createElement('h5');
 let col;
+let colo;
 let numero = 10;
+let contero = 0;
 
-countDown()
+countDown();
+countUP();
 
 function countDown(){
   element.innerHTML= numero;
   col = setInterval(function(){
     --numero;
-    if (numero === 0) {
-      clearInterval(col);
-    }
+    //ATTENZIONE: alcuni browser hanno un bug di visualizzazione che porta il numero a -1 e non a 0, forziamo il countDown;
+    if (numero < 0) numero = 0;
+    
+     if (numero === 0) {
+     clearInterval(col);
+     }
     element.innerHTML = numero;
   },1000);
 }
 
-  
+//fermo il countDown urilizzando setTimeout
+  // setTimeout(function(){
+  //   clearInterval(col);
+  //   //10.000 per arrivare a 0 o numero * 1000
+  // },10000)
     
 main.parentNode.insertBefore(element, main.nextElementSibling);
 
+// function countUP() {
+//   element2.innerHTML = contero;
+//   colo = setInterval(function(){
+//     contero++;
+//   if (contero === 10) {
+//     clearInterval(colo);
+//   }
+//   element2.innerHTML = contero;
+//   },1000)
+// }
+// utilizziamo setTimeout per questo conteggio
 
 
+function countUP() {
+  element2.innerHTML = contero;
+  if (contero < 10) { // Usa 10 per la condizione
+    setTimeout(function() {
+      contero++;
+      element2.innerHTML = contero;
+      countUP();
+    }, 1000);
+  }
+}
 
+element.parentNode.insertBefore(element2, element.nextElementSibling);
 
