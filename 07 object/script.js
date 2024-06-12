@@ -35,3 +35,20 @@ console.log("dopo la riassegnazione",oggetto.anni);
 oggetto.telefono = 3270000001;
 
 console.log(oggetto);
+console.log('-----------');
+
+//ciclo for in, un ciclo che ti permette di leggere tutte le chiavi di un oggetto
+for (const key in oggetto) {
+  console.log(key);  
+}
+  
+console.log('-----------');
+//posso usarlo anche per ciclare gli array valorizzando ad ogni ciclo l'indice
+for (const key in array) {
+  console.log(array[key]);
+}
+console.log('-----------');
+//il ciclo for OF oermette, invece di ciclare solo gli array
+for (const key of array) {
+  console.log(key);
+}
