@@ -48,7 +48,81 @@ for (const key in array) {
   console.log(array[key]);
 }
 console.log('-----------');
-//il ciclo for OF oermette, invece di ciclare solo gli array
-for (const key of array) {
-  console.log(key);
+//il ciclo for OF permette, invece di ciclare solo gli array
+for (const index of array) {
+  console.log(index);
 }
+
+for (const key in oggetto) {
+  //leggo le key in oggetto e con oggetto[key] ne leggo il valore
+  console.log(`${key}: ${oggetto[key]}`);
+}
+
+
+//array di oggetti: mettiamo caso di avere una classe di studenti
+
+const classe =[
+  {
+    nome: 'Tancredi',
+    cognome: 'Adalli',
+    anni: 13
+  },
+  {
+    nome: 'Evaristo',
+    cognome: 'Gallilei',
+    anni: 14
+  },
+  {
+    nome: 'Manfredi',
+    cognome: 'Petersoli',
+    anni: 13
+  },
+  {
+    nome: 'Gerardo',
+    cognome:'Colò',
+    anni: 17
+  }
+]
+//posso usare tutte le funzionalità di un array, come il push il pop ecc..
+
+const nuovoStudente = {
+  nome:'Ippolito',
+  cognome: 'Khan',
+  anni: 15
+}
+
+classe.push(nuovoStudente);
+//posso anche passare direttamente l'oggetto senza salvarlo in variabile
+classe.push({nome:'Deianira', cognome:'Sabaudi', anni: 13})
+
+//tutti i modi per ciclare questo array
+for (let index = 0; index < classe.length; index++) {
+  console.log(classe[index]);  
+}
+
+console.log('--- ciclo for ^ ---');
+
+for (let chiave in classe) {
+  const studente = classe[chiave];
+  console.log(`${studente.nome} ${studente.cognome} - ${studente.anni}`);
+}
+
+console.log('--- ciclo for in ^ ---');
+
+for (const iterator of classe) {
+  console.log(iterator);
+}
+
+console.log('--- ciclo for of ^ ---');
+
+for (const iterator of classe) {
+  let output =``;
+  
+  for (const key in iterator) {
+    output += iterator[key] + ' ';
+  }
+  
+  console.log(output);
+}
+
+console.log('--- ciclo for in innestato a for of ^ ---');
