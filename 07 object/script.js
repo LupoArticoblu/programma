@@ -126,3 +126,70 @@ for (const iterator of classe) {
 }
 
 console.log('--- ciclo for in innestato a for of ^ ---');
+
+//poddo creare anche un array di oggetti che ha altri oggetti al suo interno
+
+const paesi =[
+  {
+    paese: 'Spagna',
+    lingua: 'spagnolo',
+    capoluoghi:{
+      1:'Madrid',
+      2:'Siviglia',
+      3:'Saragozza',
+      4:'Oviedo',
+      5:'Palma de Mallorca'
+    }
+  },
+  {
+    paese: 'Italia',
+    lingua: 'italiano',
+    capoluoghi:{
+      1:'Aosta',
+      2:'Torino',
+      3:'Genova',
+      4:'Milano',
+      5:'Trento',
+      6:'Venezia',
+      7:'Trieste',
+      8:'Bologna',
+      9:'Firenze',
+      10:'Perugia',
+      11:'Ancona',
+      12:'Roma',
+      13:'l\'Aquila',
+      14:'Campobasso',
+      15:'Napoli',
+      16:'Bari',
+      17:'Potenza',
+      18:'Catanzaro',
+      19:'Palermo',
+      20:'Cagliari',
+    }
+  },
+  {
+    paese: 'Portogallo',
+    lingua: 'portoghese',
+    capoluoghi:{
+      1:'Porto',
+      2:'Lisbona',
+      3:'Faro',
+      4:'Funchal'
+    }
+  }
+]
+
+//cicliamo
+for (let i in paesi) {
+  const city =paesi[i];
+  console.log(`Paese: ${city.paese}`);
+  console.log(`Lingua: ${city.lingua}`);
+  console.log('Capoluoghi:');
+  
+  //controlliamo i capoluoghi
+  for (let j = 1; j <= 20; j++) {
+    //usiamo l'operatore ternario
+    const luoghi = (city.capoluoghi[j]) ? city.capoluoghi[j] : 'non ci sono altri capoluoghi';
+     console.log(j,luoghi);
+  }
+}
