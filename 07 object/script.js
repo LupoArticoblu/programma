@@ -127,7 +127,7 @@ for (const iterator of classe) {
 
 console.log('--- ciclo for in innestato a for of ^ ---');
 
-//poddo creare anche un array di oggetti che ha altri oggetti al suo interno
+//posso creare anche un array di oggetti che ha altri oggetti al suo interno
 
 const paesi =[
   {
@@ -184,8 +184,10 @@ for (let i in paesi) {
   const city =paesi[i];
   console.log(`Paese: ${city.paese}`);
   console.log(`Lingua: ${city.lingua}`);
+  //facciamo aggiungere una proprietà custom all'utente ed inseriamola nell'oggetto
+  city.densità = parseInt(prompt('aggiungi la popolazione in numeri'));
+  console.log('Densità: ' + city.densità);
   console.log('Capoluoghi:');
-  
   //controlliamo i capoluoghi
   for (let j = 1; j <= 20; j++) {
     //usiamo l'operatore ternario
