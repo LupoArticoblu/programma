@@ -184,9 +184,11 @@ for (let i in paesi) {
   const city =paesi[i];
   console.log(`Paese: ${city.paese}`);
   console.log(`Lingua: ${city.lingua}`);
-  //facciamo aggiungere una proprietà custom all'utente ed inseriamola nell'oggetto
+//facciamo aggiungere una proprietà custom all'utente ed inseriamola nell'oggetto
+/*
   city.densità = parseInt(prompt('aggiungi la popolazione in numeri'));
   console.log('Densità: ' + city.densità);
+*/
   console.log('Capoluoghi:');
   //controlliamo i capoluoghi
   for (let j = 1; j <= 20; j++) {
@@ -195,3 +197,58 @@ for (let i in paesi) {
      console.log(j,luoghi);
   }
 }
+
+//creiamo un array di ricette
+
+const ricette = [
+  {
+    img: `https://www.giallozafferano.it/images/179-17902/Spaghetti-alla-Norma_650x433_wm.jpg`,
+    nome: 'Pasta alla norma',
+    ingredienti: ['Pasta', 'Mozzarella', 'Basilico', 'Melanzane'],
+    tempo: 30,
+    livello: 2
+  },
+  {
+    img: `https://www.moltofood.it/wp-content/uploads/2023/08/spaghetti_assassina_copertina.jpg`,
+    nome: 'Spaghetti all\'assassina',
+    ingredienti: ['Spaghetti', 'Salsa pomodoro', 'Peperoncino'],
+    tempo: 15,
+    livello: 3
+  },
+  {
+    img: `https://cdn.agrodolce.it/aVbMULPTq6xba3q2sQtCrnZwQfM=/1150x647/smart/https://www.agrodolce.it/app/uploads/2013/11/ltort1.jpg`,
+    nome: 'Tortellini alla romana',
+    ingredienti: ['Tortellini', 'Sugo', 'Pecorino'],
+    tempo: 20,
+    livello: 1
+  }
+];
+
+//creiamo dinamicamente un elemento div per ogni ricetta
+const div = document.createElement('div');
+const row = document.querySelector('.row');
+row.append(div);
+for (const ricetta of ricette) {
+  console.log(ricetta);
+  let lista = '';
+  for (const ingrediente of ricetta.ingredienti) {
+    lista += `<li>${ingrediente}</li>`;
+  }
+  let card = 
+  `<div class="col-4">
+  <div class="card" style="width: 18rem;">
+    <img src="${ricetta.img}" class="card-img-top" alt="${ricetta.nome}">
+    <div class="card-body">
+      <p class="card-name">NOME - ${ricetta.nome}</p>
+      <p class="card-time">TEMPO - ${ricetta.tempo} minuti</p>
+      <p class="card-difficulty">DIFFICOLTà - ${ricetta.livello} &#9733;</p>
+      <ul class="ingred">
+        ${lista}
+      </ul>
+    </div>
+  </div>
+
+</div>`
+  //stampiamolo
+  row.innerHTML += card;
+};
