@@ -259,6 +259,9 @@ let name = 'beppe';
 let lastName = 'tomi';
 let age = 21;
 
+//possiamo anche creare delle chiavi dinamiche
+
+let keyd = 'adress';
 const user = {
   name, //<- name: name
   lastName, //<- lastName: lastName
@@ -268,9 +271,6 @@ const user = {
 
 console.log(user);
 
-//possiamo anche creare delle chiavi dinamiche
-
-let keyd = 'adress';
 
 //Destrutturare, prendere dei valori da un array e salvarli, come sempre in una costante
 
@@ -282,3 +282,19 @@ console.log(paese, lingua);
 let {name, lastName, age} = user; <= let name, lastName, age
 console.log(name, lastName, age);    già esistono
 */
+
+//A volte può essere utile conservare il resto, di una serie di elementi. Posso usare il spread operator(...) e un nome parametro da utilizzare come nome array che contiene i rimanenti elementi. l'unione di queste due cose si chiama parametro rest
+
+//in questo caso passo più parametri alla funzione e li salverà come un array
+myFunction(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+function myFunction(...paramsOptional) {
+  console.log(paramsOptional);
+}
+
+myFunction2('Alfonso', lastName, paesi);
+
+function myFunction2(param1, param2, ...paramsOptional) {
+  console.log(param1, param2, paramsOptional);
+  
+}
+
