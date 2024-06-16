@@ -252,3 +252,33 @@ for (const ricetta of ricette) {
   //stampiamolo
   row.innerHTML += card;
 };
+
+//una possibilità introdotta in ES6 è quella di usare, in un oggetto solo la chiave se chiave e valore corrispondono sempre
+
+let name = 'beppe';
+let lastName = 'tomi';
+let age = 21;
+
+const user = {
+  name, //<- name: name
+  lastName, //<- lastName: lastName
+  age, //<- age: age
+  [keyd]: 'via sanchez II'
+};
+
+console.log(user);
+
+//possiamo anche creare delle chiavi dinamiche
+
+let keyd = 'adress';
+
+//Destrutturare, prendere dei valori da un array e salvarli, come sempre in una costante
+
+const {paese, lingua} = paesi;
+console.log(paese, lingua); 
+
+//ATTENZIONE: non è possibile farlo con l'oggetto user(in questo caso) perche non possiamo riassegnare la variabile gia esistente
+/*
+let {name, lastName, age} = user; <= let name, lastName, age
+console.log(name, lastName, age);    già esistono
+*/
