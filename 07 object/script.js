@@ -291,10 +291,31 @@ function myFunction(...paramsOptional) {
   console.log(paramsOptional);
 }
 
+// -------spread con verifica interna-------
+myFunction2('Alfonso', lastName);
 myFunction2('Alfonso', lastName, paesi);
 
 function myFunction2(param1, param2, ...paramsOptional) {
-  console.log(param1, param2, paramsOptional);
+  if (paramsOptional === 0) {
+    console.log(param1, param2, 'non ho trovato array');
+  }else{ 
+    console.log(param1, param2, paramsOptional);
+  }
   
 }
 
+// ------- spread per clonare un oggetto -------
+
+const libro = {
+  titolo: 'Il Signore degli Anelli',
+  autore: 'JRR Tolkien',
+  anno: 1954
+};
+//clone oggetto
+const copiaLibro = {
+  ...libro,
+  //aggiungo nuovi valori
+  pag: 700
+};
+
+console.log(copiaLibro);
