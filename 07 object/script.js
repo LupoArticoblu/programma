@@ -224,6 +224,24 @@ const ricette = [
   }
 ];
 
+//split
+splitted();
+function splitted(){
+  ricette.forEach(ricetta => {
+    let initial = '';
+    const {nome} = ricetta;
+    const ricetteData = nome.split(/[\s']/);
+
+    console.log(ricetteData);
+
+    ricetteData.forEach(firstLetter => {
+      initial += firstLetter[0];
+    })
+
+    console.log(initial);
+  })
+}
+
 //creiamo dinamicamente un elemento div per ogni ricetta
 const div = document.createElement('div');
 const row = document.querySelector('.row');
@@ -319,3 +337,20 @@ const copiaLibro = {
 };
 
 console.log(copiaLibro);
+
+/*OFF-TOPIC:
+Analisi dell'espressione regolare
+/[a-z]/g:
+Le barre / delimitano l'inizio e la fine dell'espressione regolare.
+[a-z] è un set di caratteri che corrisponde a tutte le lettere minuscole dall'a alla z.
+g è un flag che sta per "global", il che significa che il pattern deve essere cercato in tutta la stringa, non solo alla prima occorrenza.
+
+function checkPic() {
+  posts.forEach(element => {
+    if (pic.author.image === null) {
+     pic.author.image = pic.author.name.replace(/[a-z]/g, ' ');
+    }
+  }
+});
+
+*/
