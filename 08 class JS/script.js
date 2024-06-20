@@ -53,3 +53,32 @@ luca.age = 40;
 console.log(luca.age);
 console.log(ugo.getFullName());
 console.log(luca.getFullName()); 
+
+
+//facciamo un altro esempio con le pizze
+
+class Pizze {
+  constructor(_nome, _ingredienti,){
+    this.nome = _nome;
+    this.ingredienti = _ingredienti;
+    this._prezzo;
+  }
+
+  set prezzo(number){
+    if (isNaN(number)){
+      console.log('Inserisci un numero');
+    }else{
+      this._prezzo = number.toFixed(2);
+    }
+  }
+  
+  get prezzo(){
+    return this._prezzo;
+    
+  }
+}
+
+const pizzaMargherita = new Pizze('Margherita', ['pomodoro', 'mozzarella']);
+//ATTENZIONE:Quando assegni una stringa che contiene un numero ('4'), il controllo isNaN(number) restituisce false perché '4' non è NaN (Not-a-Number). Tuttavia, quando tenta di chiamare number.toFixed(2), il codice lancia un errore perché toFixed non è un metodo definito per le stringhe.
+pizzaMargherita.prezzo = 4;
+console.log(pizzaMargherita);
