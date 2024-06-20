@@ -76,9 +76,56 @@ class Pizze {
     return this._prezzo;
     
   }
+  //usiamo un flag per sapere se la pizza è vegana
+  get isVegan(){
+     const noVegan =['salsiccia', 'mozzarella', 'salmone', 'ricotta', 'prosciutto'];
+    let vegan = true;
+    this.ingredienti.forEach(element => {
+      if (noVegan.includes(element)){
+        vegan = false;
+      }
+    }) 
+    return vegan; 
+  }
+  //scontiamo le pizze del 10% con una funzione
+  getPrezzoScontato(sconto){
+    return (this._prezzo -= (this._prezzo * sconto) / 100);
+  }
+  get descrizione(){
+    //controllo per verificare ingredienti
+    if (this.ingredienti.length === 0) {
+      return `${this.nome} senza ingredienti al prezzo di ${this._prezzo}€`;
+    } else if (this.ingredienti.length === 1) {
+      return `${this.nome} con ${this.ingredienti[0]} al prezzo di ${this._prezzo}€`;
+    } else {
+      //se ci sono 2 o più ingredienti verifico che vengano divisi da una virgola e da una "e" prima dell'ultimo 
+      let descrizioneIngredienti = '';
+      for (let i = 0; i < this.ingredienti.length; i++) {
+          // Se è l'ultimo ingrediente
+          if (i === this.ingredienti.length - 1) {
+              descrizioneIngredienti += ` e ${this.ingredienti[i]}`;
+          } else if (i === 0) {
+              descrizioneIngredienti += `${this.ingredienti[i]}`;
+          } else {
+              descrizioneIngredienti += `, ${this.ingredienti[i]}`;
+          }
+      }
+      return `${this.nome} con ${descrizioneIngredienti} al prezzo di ${this._prezzo}€  ${this.isVegan ? '(vegana)' : ''}`;
+    }
+  }
 }
+
 
 const pizzaMargherita = new Pizze('Margherita', ['pomodoro', 'mozzarella']);
 //ATTENZIONE:Quando assegni una stringa che contiene un numero ('4'), il controllo isNaN(number) restituisce false perché '4' non è NaN (Not-a-Number). Tuttavia, quando tenta di chiamare number.toFixed(2), il codice lancia un errore perché toFixed non è un metodo definito per le stringhe.
 pizzaMargherita.prezzo = 4;
 console.log(pizzaMargherita);
+console.log('isVegan',pizzaMargherita.isVegan);
+console.log('sconto su margherita ',pizzaMargherita.getPrezzoScontato(10));
+console.log('descrizione: ',pizzaMargherita.descrizione);
+
+const pizzaMarinara = new Pizze('Marinara', ['pomodoro','capperi', 'olio']);
+pizzaMarinara.prezzo = 3.5;
+console.log(pizzaMarinara);
+console.log('isVegan',pizzaMarinara.isVegan);
+console.log('descrizione: ',pizzaMarinara.descrizione);
