@@ -43,11 +43,20 @@ const myWishList = new wishList();
 const buttons = document.querySelectorAll('.btn-danger'); 
 //facciamo un ciclo forEach per ogni bottone
 buttons.forEach(button => {
+
+  //ATTENZIONE anche qui è molto complesso
   button.addEventListener('click', () => {
     const pizzaSlug = button.dataset.slug;
       //facciamo un filtro find, che invece di restituire un array, restituisce direttamente il primo elemento che matcha la condizione che gli diamo, in questo caso di pizze per slug
     const myPizza = pizzeClass.find(pizza => pizza.slug === pizzaSlug);
     myWishList.add(myPizza);
+    const wishList = document.getElementById('wishList');
+    wishList.innerHTML = '';
+    myWishList.list.forEach(pizza => {
+      wishList.innerHTML += `<li>nome pizza: ${pizza.nome} quantità: ${pizza.quantità}<br>
+      Prezzo tot: ${(parseFloat(pizza.prezzo) * pizza.quantità).toFixed(2)}
+      </li>`
+    })
     console.log(myWishList.list);
   })
 }) 
