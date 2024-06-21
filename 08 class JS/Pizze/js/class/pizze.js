@@ -38,13 +38,7 @@ class Pizze {
   }
   get descrizione(){
     //controllo per verificare ingredienti
-    if (this.ingredienti.length === 0) {
-      return `${this.immagine ? `<img src="${this.immagine}">` : 'immagine non trovata'}:
-      ${this.nome} senza ingredienti al prezzo di ${this._prezzo}€`;
-    } else if (this.ingredienti.length === 1) {
-      return `${this.immagine ? `<img src="${this.immagine}">` : 'immagine non trovata'}:
-      ${this.nome} con ${this.ingredienti[0]} al prezzo di ${this._prezzo}€`;
-    } else {
+    
       //se ci sono 2 o più ingredienti verifico che vengano divisi da una virgola e da una "e" prima dell'ultimo 
       let descrizioneIngredienti = '';
       for (let i = 0; i < this.ingredienti.length; i++) {
@@ -57,8 +51,12 @@ class Pizze {
               descrizioneIngredienti += `, ${this.ingredienti[i]}`;
           }
       }
-      return `${this.immagine ? `<img src="${this.immagine}">` : 'immagine non trovata'}:
-      ${this.nome} con ${descrizioneIngredienti} al prezzo di ${this._prezzo}€  ${this.isVegan ? '(vegana)' : ''}`;
+      return `
+      <div class="card" style="width: 18rem;">
+        <img src="${this.immagine}" class="card-img-top" alt="immagine non trovata">
+        <div class="card-body">
+          <p class="card-text">${this.nome} con ${descrizioneIngredienti} al prezzo di ${this._prezzo}€  ${this.isVegan ? '(vegana)' : ''}</p>
+        </div>
+      </div>`
     }
   }
-}
