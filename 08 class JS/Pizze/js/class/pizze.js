@@ -5,8 +5,10 @@ class Pizze {
     this.nome = _nome;
     this.ingredienti = _ingredienti;
     this._prezzo;
+    this.immagine;
   }
 
+  
   set prezzo(number){
     if (isNaN(number)){
       console.log('Inserisci un numero');
@@ -37,9 +39,11 @@ class Pizze {
   get descrizione(){
     //controllo per verificare ingredienti
     if (this.ingredienti.length === 0) {
-      return `${this.nome} senza ingredienti al prezzo di ${this._prezzo}€`;
+      return `${this.immagine ? `<img src="${this.immagine}">` : 'immagine non trovata'}:
+      ${this.nome} senza ingredienti al prezzo di ${this._prezzo}€`;
     } else if (this.ingredienti.length === 1) {
-      return `${this.nome} con ${this.ingredienti[0]} al prezzo di ${this._prezzo}€`;
+      return `${this.immagine ? `<img src="${this.immagine}">` : 'immagine non trovata'}:
+      ${this.nome} con ${this.ingredienti[0]} al prezzo di ${this._prezzo}€`;
     } else {
       //se ci sono 2 o più ingredienti verifico che vengano divisi da una virgola e da una "e" prima dell'ultimo 
       let descrizioneIngredienti = '';
@@ -53,7 +57,8 @@ class Pizze {
               descrizioneIngredienti += `, ${this.ingredienti[i]}`;
           }
       }
-      return `${this.nome} con ${descrizioneIngredienti} al prezzo di ${this._prezzo}€  ${this.isVegan ? '(vegana)' : ''}`;
+      return `${this.immagine ? `<img src="${this.immagine}">` : 'immagine non trovata'}:
+      ${this.nome} con ${descrizioneIngredienti} al prezzo di ${this._prezzo}€  ${this.isVegan ? '(vegana)' : ''}`;
     }
   }
 }
