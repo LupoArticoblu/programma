@@ -38,3 +38,16 @@ pizzeClass.forEach(pizza => {
 })
 
 console.log(pizzeClass);
+const myWishList = new wishList();
+
+const buttons = document.querySelectorAll('.btn-danger'); 
+//facciamo un ciclo forEach per ogni bottone
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const pizzaSlug = button.dataset.slug;
+      //facciamo un filtro find, che invece di restituire un array, restituisce direttamente il primo elemento che matcha la condizione che gli diamo, in questo caso di pizze per slug
+    const myPizza = pizzeClass.find(pizza => pizza.slug === pizzaSlug);
+    myWishList.add(myPizza);
+    console.log(myWishList.list);
+  })
+}) 

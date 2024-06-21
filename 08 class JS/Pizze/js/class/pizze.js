@@ -56,7 +56,15 @@ class Pizze {
         <img src="${this.immagine}" class="card-img-top" alt="immagine non trovata">
         <div class="card-body">
           <p class="card-text">${this.nome} con ${descrizioneIngredienti} al prezzo di ${this._prezzo}€  ${this.isVegan ? '(vegana)' : ''}</p>
+          <button data-slug="${this.slug}" class="btn btn-danger">Aggiungi al carrello</button>
         </div>
       </div>`
     }
+
+    //facciamo uno slug per le pizze
+    get slug(){
+      return this.nome.trim().toLowerCase().replace(/[^a-zA-Z0-9]/g, '-');
+    }
   }
+  
+  
